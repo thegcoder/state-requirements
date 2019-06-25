@@ -1,0 +1,13 @@
+<h2>All Shops</h2>
+
+<a href="/shops/new">Add New Shop</a>
+
+{{#each shops}}
+    <div>
+        <a href="/shops/{{_id}}">{{name}}</a>
+        <p>{{rating}}</p>
+        <p>{{description}}</p>
+        <p>{{category}}</p>
+        <img src="{{imgLink}}" alt="Image of {{name}}">
+    </div>
+{{/each}}

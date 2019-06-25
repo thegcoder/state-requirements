@@ -16,6 +16,7 @@ const express = require('express')
  * 
  */
 const shopApi = require('../models/shop.js')
+const foodApi = require('../models/food.js')
 
 /* Step 3 
  * 
@@ -39,7 +40,7 @@ const shopRouter = express.Router()
 shopRouter.get('/', (req, res) => {
   shopApi.getShops()
     .then((shops) => {
-      res.send(shops)
+      res.render('shops/shops', {shops})
     })
     .catch((err) => {
       res.send(err)
@@ -49,42 +50,54 @@ shopRouter.get('/', (req, res) => {
 shopRouter.post('/', (req, res) => {
   shopApi.addShop(req.body)
     .then(() => {
-      res.send('Shop created')
+      res.redirect('/shops')
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
+shopRouter.post('/:shopId/food', (req, res) => {
+  console.log(req)
+  req.body.shopId = req.params.shopId
+  foodApi.addFood(req.body)
+    .then(() => {
+      res.send('Food item created')
+    })
+})
+
 shopRouter.get('/new', (req, res) => {
-  res.send('This is a new shop form')
+  res.render('shops/newShopForm')
 })
 
 shopRouter.get('/:shopId/edit', (req, res) => {
   shopApi.getShop(req.params.shopId)
     .then((shop) => {
-      res.send('This is an edit form')
+      res.render('shops/editShopForm', {shop})
     })
 })
 
 shopRouter.get('/:shopId', (req, res) => {
   shopApi.getShop(req.params.shopId)
     .then((shop) => {
-      res.send(shop)
+      foodApi.getFoodByShopId(shop._id)
+        .then((food) => {
+          res.render('shops/singleShop', {shop, food})
+        })
     })
 })
 
 shopRouter.put('/:shopId', (req, res) => {
   shopApi.updateShop(req.params.shopId, req.body)
     .then(() => {
-      res.send('Shop updated')
+      res.redirect('/shops')
     })
 })
 
 shopRouter.delete('/:shopId', (req, res) => {
   shopApi.deleteShop(req.params.shopId)
     .then(() => {
-      res.send('Shop deleted')
+      res.redirect('/shops')
     })
 })
 

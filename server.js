@@ -18,6 +18,7 @@ const methodOverride = require('method-override')
  *
  */
 const { shopRouter } = require('./controllers/shop.js')
+const { foodRouter } = require('./controllers/food.js')
 
 
 /* Step 3
