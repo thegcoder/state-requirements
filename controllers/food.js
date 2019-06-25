@@ -25,7 +25,7 @@ const foodApi = require('../models/food.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const foodRouter = express.Router()
+const foodRouter = express.Router({mergeParams: true})
 
 /* Step 4
  * 
@@ -37,7 +37,7 @@ const foodRouter = express.Router()
  * TODO: delete this handler; it's just a sample
  */ 
 foodRouter.post('/', (req, res) => {
-  console.log(req)
+  console.log(req.params)
   req.body.shopId = req.params.shopId
   foodApi.addFood(req.body)
     .then(() => {

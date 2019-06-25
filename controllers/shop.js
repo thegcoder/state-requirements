@@ -57,15 +57,6 @@ shopRouter.post('/', (req, res) => {
     })
 })
 
-shopRouter.post('/:shopId/food', (req, res) => {
-  console.log(req)
-  req.body.shopId = req.params.shopId
-  foodApi.addFood(req.body)
-    .then(() => {
-      res.send('Food item created')
-    })
-})
-
 shopRouter.get('/new', (req, res) => {
   res.render('shops/newShopForm')
 })
