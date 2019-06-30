@@ -11,37 +11,37 @@ const express = require('express')
  * TODO: rename this from `templateApi` to something more sensible (e.g:
  * `shopsAPI`)
  *
- * NOTE: You may need to import more than one API to create the 
+ * NOTE: You may need to import more than one API to create the
  * controller you need.
- * 
+ *
  */
-const foodApi = require('../models/food.js')
+const studentApi = require('../models/student.js')
 
-/* Step 3 
- * 
+/* Step 3
+ *
  * Create a new router.
  *
  * the router will "contain" all the request handlers that you define in this file.
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const foodRouter = express.Router({mergeParams: true})
+const studentRouter = express.Router({mergeParams: true})
 
 /* Step 4
- * 
+ *
  * TODO: Put all request handlers here
  */
 
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
- */ 
-foodRouter.post('/', (req, res) => {
+ */
+studenytRouter.post('/', (req, res) => {
   console.log(req.params)
-  req.body.shopId = req.params.shopId
-  foodApi.addFood(req.body)
+  req.body.studentId = req.params.studentId
+  studentApi.addStudent(req.body)
     .then(() => {
-      res.send('Food item created')
+      res.send('New Student created')
     })
 })
 
@@ -51,5 +51,5 @@ foodRouter.post('/', (req, res) => {
  *
  */
 module.exports = {
-  foodRouter
+  studentRouter
 }

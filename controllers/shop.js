@@ -11,43 +11,43 @@ const express = require('express')
  * TODO: rename this from `templateApi` to something more sensible (e.g:
  * `shopsAPI`)
  *
- * NOTE: You may need to import more than one API to create the 
+ * NOTE: You may need to import more than one API to create the
  * controller you need.
- * 
+ *
  */
 const shopApi = require('../models/shop.js')
-const foodApi = require('../models/food.js')
+const studentApi = require('../models/student.js')
 
-/* Step 3 
- * 
+/* Step 3
+ *
  * Create a new router.
  *
  * the router will "contain" all the request handlers that you define in this file.
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const shopRouter = express.Router()
+const studentRouter = express.Router()
 
 /* Step 4
- * 
+ *
  * TODO: Put all request handlers here
  */
 
 /* Step 5
  *
  * TODO: delete this handler; it's just a sample
- */ 
-shopRouter.get('/', (req, res) => {
+ */
+studentRouter.get('/', (req, res) => {
   shopApi.getShops()
     .then((shops) => {
-      res.render('shops/shops', {shops})
+      res.render('students/students', {stuents})
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
-shopRouter.post('/', (req, res) => {
+studentRouter.post('/', (req, res) => {
   shopApi.addShop(req.body)
     .then(() => {
       res.redirect('/shops')
