@@ -56,7 +56,7 @@ const StateCollection = mongoose.model('State', StateSchema)
  * TODO: delete this it's just a sample
  *
  */
-function getState() {
+function getAllStates() {
   return StateCollection.find()
 }
 
@@ -65,11 +65,11 @@ function addState(stateObject) {
 }
 
 function getState(stateId) {
-  return StateCollection.findById(studentId)
+  return StateCollection.findByStateId(stateId)
 }
 
 function updateState(stateId, stateObject) {
-  return StudentCollection.findByIdAndUpdate(studentId, studentObject)
+  return StateCollection.findByIdAndUpdate(stateId, state)
 }
 
 function deleteState(stateId) {
@@ -82,7 +82,7 @@ function deleteState(stateId) {
  * object
  */
 module.exports = {
-  getState,
+  getAllState,
   addState,
   updateState,
   deleteState
