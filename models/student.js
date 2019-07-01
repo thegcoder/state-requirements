@@ -1,5 +1,5 @@
-/* 
- * Place all functions, classes, and/or DB schemas here for a single 
+/*
+ * Place all functions, classes, and/or DB schemas here for a single
  * model.
  */
 
@@ -13,7 +13,7 @@ const mongoose = require('./connection.js')
 
 /* Step 1 alternative
  *
- * TODO: make a global variable to act as an in memory database. 
+ * TODO: make a global variable to act as an in memory database.
  * NOTE: doing this WILL NOT persist your data and you will loose
  * your data once you stop running your server.
  *
@@ -21,13 +21,13 @@ const mongoose = require('./connection.js')
 
 /* Step 2
  *
- * TODO: create model schema 
+ * TODO: create model schema
  * NOTE: skip this if you are not using mongoose
  *
  */
-const FoodSchema = new mongoose.Schema({
+const StudentSchema = new mongoose.Schema({
  name: String,
- shopId: mongoose.Types.ObjectId
+ studentId: mongoose.Types.ObjectId
 })
 
 /* Step 3
@@ -36,19 +36,19 @@ const FoodSchema = new mongoose.Schema({
  * NOTE: skip this if you are not using mongoose
  *
  */
-const FoodCollection = mongoose.model('Food', FoodSchema)
+const StudentCollection = mongoose.model('Student', StudentSchema)
 
 /* Step 4
  *
  * TODO: delete this it's just a sample
  *
  */
-function getFoodByShopId(shopId) {
-  return FoodCollection.find({shopId: shopId})
+function getStudentByStudentId(studentId) {
+  return StudentCollection.find({studentId: studentId})
 }
 
-function addFood(foodObject) {
-  return FoodCollection.create(foodObject)
+function addStudent(studentObject) {
+  return StudentCollection.create(studentObject)
 }
 
 /* Step 5
@@ -57,6 +57,6 @@ function addFood(foodObject) {
  * object
  */
 module.exports = {
-  getFoodByShopId,
-  addFood
+  getStudentByStudentId,
+  addStudent
 }

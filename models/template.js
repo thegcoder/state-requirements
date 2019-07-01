@@ -1,5 +1,5 @@
 /* 
- * Place all functions, classes, and/or DB schemas here for a single 
+ * Place all functions, classes, and/or DB schemas here for a single
  * model.
  */
 
@@ -13,7 +13,7 @@
 
 /* Step 1 alternative
  *
- * TODO: make a global variable to act as an in memory database. 
+ * TODO: make a global variable to act as an in memory database.
  * NOTE: doing this WILL NOT persist your data and you will loose
  * your data once you stop running your server.
  *
@@ -22,7 +22,7 @@ global.sampleModel = [];
 
 /* Step 2
  *
- * TODO: create model schema 
+ * TODO: create model schema
  * NOTE: skip this if you are not using mongoose
  *
  */

@@ -1,5 +1,5 @@
-/* 
- * Place all functions, classes, and/or DB schemas here for a single 
+/*
+ * Place all functions, classes, and/or DB schemas here for a single
  * model.
  */
 
@@ -13,7 +13,7 @@ const mongoose = require('./connection.js')
 
 /* Step 1 alternative
  *
- * TODO: make a global variable to act as an in memory database. 
+ * TODO: make a global variable to act as an in memory database.
  * NOTE: doing this WILL NOT persist your data and you will loose
  * your data once you stop running your server.
  *
@@ -21,11 +21,11 @@ const mongoose = require('./connection.js')
 
 /* Step 2
  *
- * TODO: create model schema 
+ * TODO: create model schema
  * NOTE: skip this if you are not using mongoose
  *
  */
-const ShopSchema = new mongoose.Schema({
+const StateSchema = new mongoose.Schema({
  name: {
    type: String,
    required: true
@@ -49,31 +49,31 @@ const ShopSchema = new mongoose.Schema({
  * NOTE: skip this if you are not using mongoose
  *
  */
-const ShopCollection = mongoose.model('Shop', ShopSchema)
+const StateCollection = mongoose.model('State', StateSchema)
 
 /* Step 4
  *
  * TODO: delete this it's just a sample
  *
  */
-function getShops() {
-  return ShopCollection.find()
+function getState() {
+  return StateCollection.find()
 }
 
-function addShop(shopObject) {
-  return ShopCollection.create(shopObject)
+function addState(stateObject) {
+  return StateCollection.create(stateObject)
 }
 
-function getShop(shopId) {
-  return ShopCollection.findById(shopId)
+function getState(stateId) {
+  return StateCollection.findById(studentId)
 }
 
-function updateShop(shopId, shopObject) {
-  return ShopCollection.findByIdAndUpdate(shopId, shopObject)
+function updateState(stateId, stateObject) {
+  return StudentCollection.findByIdAndUpdate(studentId, studentObject)
 }
 
-function deleteShop(shopId) {
-  return ShopCollection.findByIdAndDelete(shopId)
+function deleteState(stateId) {
+  return StateCollection.findByIdAndDelete(stateId)
 }
 
 /* Step 5
@@ -82,9 +82,8 @@ function deleteShop(shopId) {
  * object
  */
 module.exports = {
-  getShops,
-  addShop,
-  getShop,
-  updateShop,
-  deleteShop
+  getState,
+  addState,
+  updateState,
+  deleteState
 }

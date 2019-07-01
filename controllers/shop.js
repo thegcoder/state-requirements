@@ -15,7 +15,7 @@ const express = require('express')
  * controller you need.
  *
  */
-const shopApi = require('../models/shop.js')
+const studentApi = require('../models/student.js')
 const studentApi = require('../models/student.js')
 
 /* Step 3
@@ -38,9 +38,9 @@ const studentRouter = express.Router()
  * TODO: delete this handler; it's just a sample
  */
 studentRouter.get('/', (req, res) => {
-  shopApi.getShops()
+  studentApi.getStudents()
     .then((shops) => {
-      res.render('students/students', {stuents})
+      res.render('students/students', {students})
     })
     .catch((err) => {
       res.send(err)
@@ -48,47 +48,47 @@ studentRouter.get('/', (req, res) => {
 })
 
 studentRouter.post('/', (req, res) => {
-  shopApi.addShop(req.body)
+  studentApi.addStudent(req.body)
     .then(() => {
-      res.redirect('/shops')
+      res.redirect('/students')
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
-shopRouter.get('/new', (req, res) => {
-  res.render('shops/newShopForm')
+studentRouter.get('/new', (req, res) => {
+  res.render('students/newStudentForm')
 })
 
-shopRouter.get('/:shopId/edit', (req, res) => {
-  shopApi.getShop(req.params.shopId)
-    .then((shop) => {
-      res.render('shops/editShopForm', {shop})
+studentRouter.get('/:studentId/edit', (req, res) => {
+  studentApi.getStudent(req.params.studentId)
+    .then((student) => {
+      res.render('students/editStudentForm', {student})
     })
 })
 
-shopRouter.get('/:shopId', (req, res) => {
-  shopApi.getShop(req.params.shopId)
-    .then((shop) => {
-      foodApi.getFoodByShopId(shop._id)
+studentRouter.get('/:studentId', (req, res) => {
+  studentApi.getStudent(req.params.studentId)
+    .then((student) => {
+      studentApi.getStudentByStateId(student._id)
         .then((food) => {
-          res.render('shops/singleShop', {shop, food})
+          res.render('students/singleStudent', {student, state})
         })
     })
 })
 
-shopRouter.put('/:shopId', (req, res) => {
-  shopApi.updateShop(req.params.shopId, req.body)
+studentRouter.put('/:studentId', (req, res) => {
+  studentApi.updateStudent(req.params.studentId, req.body)
     .then(() => {
-      res.redirect('/shops')
+      res.redirect('/students')
     })
 })
 
-shopRouter.delete('/:shopId', (req, res) => {
-  shopApi.deleteShop(req.params.shopId)
+studentRouter.delete('/:studentId', (req, res) => {
+  studentApi.deleteStudent(req.params.studentId)
     .then(() => {
-      res.redirect('/shops')
+      res.redirect('/students')
     })
 })
 
