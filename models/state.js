@@ -82,7 +82,7 @@ function deleteState(stateId) {
  * object
  */
 module.exports = {
-  getAllState,
+  getAllStates,
   addState,
   updateState,
   deleteState

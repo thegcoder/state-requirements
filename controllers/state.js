@@ -15,8 +15,8 @@ const express = require('express')
  * controller you need.
  *
  */
-const studentApi = require('../models/student.js')
-const studentApi = require('../models/student.js')
+const stateApi = require('../models/state.js')
+const stateApi = require('../models/state.js')
 
 /* Step 3
  *
@@ -26,7 +26,7 @@ const studentApi = require('../models/student.js')
  * TODO: rename this from templateRouter to something that makes sense. (e.g:
  * `shopRouter`)
  */
-const studentRouter = express.Router()
+const stateRouter = express.Router()
 
 /* Step 4
  *
@@ -37,58 +37,58 @@ const studentRouter = express.Router()
  *
  * TODO: delete this handler; it's just a sample
  */
-studentRouter.get('/', (req, res) => {
-  studentApi.getStudents()
-    .then((shops) => {
-      res.render('students/students', {students})
+stateRouter.get('/', (req, res) => {
+  stateApi.getAllStates()
+    .then((state) => {
+      res.render('state/state', {state})
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
-studentRouter.post('/', (req, res) => {
-  studentApi.addStudent(req.body)
+stateRouter.post('/', (req, res) => {
+  stateApi.addState(req.body)
     .then(() => {
-      res.redirect('/students')
+      res.redirect('/state')
     })
     .catch((err) => {
       res.send(err)
     })
 })
 
-studentRouter.get('/new', (req, res) => {
-  res.render('students/newStudentForm')
+stateRouter.get('/new', (req, res) => {
+  res.render('state')
 })
 
-studentRouter.get('/:studentId/edit', (req, res) => {
-  studentApi.getStudent(req.params.studentId)
-    .then((student) => {
-      res.render('students/editStudentForm', {student})
+stateRouter.get('/:stateId/edit', (req, res) => {
+  stateApi.getAllStates(req.params.stateId)
+    .then((state) => {
+      res.render('stateID/editState', {state})
     })
 })
 
-studentRouter.get('/:studentId', (req, res) => {
-  studentApi.getStudent(req.params.studentId)
-    .then((student) => {
-      studentApi.getStudentByStateId(student._id)
-        .then((food) => {
-          res.render('students/singleStudent', {student, state})
+stateRouter.get('/:stateId', (req, res) => {
+  stateApi.getAllStates(req.params.stateId)
+    .then((state) => {
+      stateApi.getAllStatesByStateId(state._id)
+        .then((state) => {
+          res.render('state/singleState', {state})
         })
     })
 })
 
-studentRouter.put('/:studentId', (req, res) => {
-  studentApi.updateStudent(req.params.studentId, req.body)
+stateRouter.put('/:stateId', (req, res) => {
+  stateApi.updateState(req.params.stateId, req.body)
     .then(() => {
-      res.redirect('/students')
+      res.redirect('/state')
     })
 })
 
-studentRouter.delete('/:studentId', (req, res) => {
-  studentApi.deleteStudent(req.params.studentId)
+stateRouter.delete('/:stateId', (req, res) => {
+  stateApi.deleteState(req.params.studentId)
     .then(() => {
-      res.redirect('/students')
+      res.redirect('/state')
     })
 })
 
