@@ -1,10 +1,13 @@
-# controllers 
+Table of contents
 
-This directory is for your HTTP request response handlers. Everything to
-do with a specific endpoint for your website should go in its own file. For example
-all request handlers that start with `shops/` should go in `./shops.js`.
+Personal GitHub Repository
+https://github.com/thegcoder/Student-state-requirements-app.git
 
-# Template Controller File
+General Assembly Project 2
+ Student State Requirements App: This app allows school counselors to have a
+ live view where they view each students requirements.  School
+ administration can also gauge whether they are on track to graduate based upon
+ their individual state.  
 
-See the `./template.js` file for a template controller file. Feel free to copy `template.js`
-when creating new controllers and complete all steps labeled `TODO`
+ My Project Board
+ https://trello.com/b/kghLfLia/project-2
