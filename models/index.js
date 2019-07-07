@@ -135,7 +135,7 @@ async function update(type, id, object) {
 }
 
 // Delete Operations
-async function remove(type, id) {
+async function deleter(type, id) {
     let data = Promise.resolve(false);
     switch (type) {
         case 'states':

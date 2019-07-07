@@ -79,7 +79,7 @@ router.put('/:type/:id', (req, res) => {
 router.delete('/:type/:id', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
-    apis.remove(type, id)
+    apis.deleter(type, id)
         .then(() => {
             res.redirect(`/#delete`);
         })
