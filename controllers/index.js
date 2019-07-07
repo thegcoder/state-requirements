@@ -41,9 +41,12 @@ router.get('/:type', (req, res) => {
 // CREATE
 router.get('/create/:type', (req, res) => {
     let type = req.params.type;
-    // Uppercase the first letter of the type
-    type = type.charAt(0).toUpperCase() + type.slice(1);
-    res.render('create', {type});
+    let data = {
+        type,
+        // Uppercase the first letter of the type
+        display: type.charAt(0).toUpperCase() + type.slice(1)
+    };
+    res.render('create', data);
 });
 
 router.post('/:type', (req, res) => {
