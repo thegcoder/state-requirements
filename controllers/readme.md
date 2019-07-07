@@ -1,13 +1,7 @@
-Table of contents
+# C - Controllers
 
-Personal GitHub Repository
-https://github.com/thegcoder/Student-state-requirements-app.git
+Controller handles the user request. Typically, user interact with View, which in-turn raises appropriate URL request, this request will be handled by a controller. The controller renders the appropriate view with the model data as a response.
 
-General Assembly Project 2
- Student State Requirements App: This app allows school counselors to have a
- live view where they view each students requirements.  School
- administration can also gauge whether they are on track to graduate based upon
- their individual state.  
+## controllers/index.js
 
- My Project Board
- https://trello.com/b/kghLfLia/project-2
+This is the entry point for all the controllers in this application.

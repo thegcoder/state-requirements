@@ -1,8 +1,7 @@
-# models
+# M - Models
 
-This directory is where your model files should go. 
+Model represents shape of the data and business logic. It maintains the data of the application. Model objects retrieve and store model state in a database.
 
-# Template Model File
+## models/index.js
 
-See the `./template.js` file for a template model file. Fell free to copy this 
-when creating a new model.
+This is the entry point for all the models in this application.
