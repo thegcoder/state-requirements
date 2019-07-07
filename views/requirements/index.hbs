@@ -2,8 +2,8 @@
 <html>
 {{> head}}
 <body>
-    <h1><a href="/">Requirements By State</a></h1>
-    <h2>Requirements</h2>
+    {{> nav}}
+    <h3>Requirements</h3>
     <ul>
     {{#each items}}
         <li><a href="requirement/{{id}}">{{name}}</a></li>
