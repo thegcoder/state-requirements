@@ -18,7 +18,8 @@ const StateSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    students: [StudentSchema]
+    requirements: [],
+    students: []
 });
 
 // Requirement schema
@@ -27,8 +28,7 @@ const RequirementSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    description: String,
-    states: [StateSchema]
+    description: String
 })
 
 /**
@@ -49,75 +49,92 @@ const Requirements = mongoose.model('Requirements', RequirementSchema);
  */
 
 // Get All
-function all(type) {
+async function all(type) {
+    let data = Promise.resolve(false);
     switch (type) {
         case 'states':
-            return States.find({});
+            data = await States.find({});
+            return data;
             break;
         case 'students':
-            return Students.find({});
+            data = await Students.find({});
+            return data;
             break;
         case 'requirements':
-            return Requirements.find({});
+            data = await Requirements.find({});
+            return data;
             break;
         default:
-            return {};
+            return data;
     }
 }
 
 // Create Operations
-function create(type, object) {
+async function create(type, object) {
+    let data = Promise.resolve(false);
     switch (type) {
         case 'states':
-            return States.create(object);
+            data = await States.create(object);
+            return data;
             break;
         case 'students':
-            return Students.create(object);
+            data = await Students.create(object);
+            return data;
             break;
         case 'requirements':
-            return Requirements.create(object);
+            data = await Requirements.create(object);
+            return data;
             break;
         default:
-            return {};
+            return data;
     }
 }
 
 // Read Operations
-function read(type, id) {
+async function read(type, id) {
+    let data = Promise.resolve(false);
     switch (type) {
         case 'states':
-            return States.findById(id);
+            data = await States.findById(id);
+            return data;
             break;
         case 'students':
-            return Students.findById(id);
+            data = await Students.findById(id);
+            return data;
             break;
         case 'requirements':
-            return Requirements.findById(id);
+            data = await Requirements.findById(id);
+            return data;
             break;
         default:
-            return {};
+            return data;
     }
 }
 
 // Update Operations
-function update(type, id, object) {
+async function update(type, id, object) {
+    let data = Promise.resolve(false);
     switch (type) {
         case 'states':
-            return States.findByIdAndUpdate(id, object);
+            data = await States.findByIdAndUpdate(id, object);
+            return data;
             break;
         case 'students':
-            return Students.findByIdAndUpdate(id, object);
+            data = await Students.findByIdAndUpdate(id, object);
+            return data;
             break;
         case 'requirements':
-            return Requirements.findByIdAndUpdate(id, object);
+            data = await Requirements.findByIdAndUpdate(id, object);
+            return data;
             break;
         default:
-            return {};
+            return data;
     }
 }
 
 // Delete Operations
-function remove(type, id, object) {
+async function remove(type, id, object) {
+    let data = Promise.resolve(false);
     switch (type) {
         case 'states':
             return States.findByIdAndDelete(stateId);
@@ -129,7 +146,7 @@ function remove(type, id, object) {
             return Requirements.findByIdAndDelete(stateId);
             break;
         default:
-            return {};
+            return data;
     }
 }
 

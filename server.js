@@ -41,7 +41,7 @@ app.use(express.json());
  *
  * add method-override middleware for "faking" DELETE and PUT/PATCH requests
  */
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
 /* Step 3.c
  *
@@ -62,7 +62,7 @@ app.set('view engine', 'hbs');
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('*', router);
+app.use('/', router);
 
 /* Step 5
  *
