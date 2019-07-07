@@ -4,6 +4,7 @@
 
 - [MVC](#mvc)
 - [State Requirements App](#state-requirements-app)
+- [CSS](#css-rules)
 
 ## MVC
 
@@ -15,4 +16,8 @@ MVC stands for Model, View and Controller. MVC separates application into three 
 
 This app allows school counselors to have a live view where they view each students requirements by state. School
 administration/counselors can also gauge whether each individual student is on track to graduate based upon
-their individual state requirements.  
+their individual state requirements.
+
+## CSS Rules
+
+[Bootstrap](https://getbootstrap.com/docs/4.3) CSS rules are being used to style this application
