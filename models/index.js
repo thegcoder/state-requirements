@@ -16,7 +16,8 @@ const mongoose = require('./connection.js');
 const StateSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     requirements: [],
     students: []
@@ -26,7 +27,8 @@ const StateSchema = new mongoose.Schema({
 const RequirementSchema = new mongoose.Schema({
     name: {
         type: String,
-        require: true
+        require: true,
+        unique: true
     },
     description: String
 })
@@ -133,18 +135,18 @@ async function update(type, id, object) {
 }
 
 // Delete Operations
-async function remove(type, id, object) {
+async function remove(type, id) {
     let data = Promise.resolve(false);
     switch (type) {
         case 'states':
-            return States.findByIdAndDelete(stateId);
-            break;
+            data = await States.findByIdAndDelete(id);
+            return data;
         case 'students':
-            return Students.findByIdAndDelete(stateId);
-            break;
+            data = await Students.findByIdAndDelete(id);
+            return data;
         case 'requirements':
-            return Requirements.findByIdAndDelete(stateId);
-            break;
+            data = await Requirements.findByIdAndDelete(id);
+            return data;
         default:
             return data;
     }
