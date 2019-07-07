@@ -3,12 +3,13 @@
 {{> head}}
 <body>
     {{> nav}}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page">States</li>
-      </ol>
-    </nav>
-    <ul>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="/states">States</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#create">Create</a>
+      </li>
     </ul>
     <ul class="list-group">
         {{#each items}}

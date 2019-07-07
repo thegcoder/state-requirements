@@ -3,12 +3,17 @@
 {{> head}}
 <body>
     {{> nav}}
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item" aria-current="page">States</li>
-        <li class="breadcrumb-item active" aria-current="page">State</li>
-      </ol>
-    </nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" href="/states">States</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#update">Update</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#delete">Delete</a>
+      </li>
+    </ul>
     <ul>
     {{#each requirements}}
         <li><a href="requirements/{{id}}">{{name}}</a></li>

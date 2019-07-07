@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+{{> head}}
+<body>
+    {{> nav}}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">States</li>
+        <li class="breadcrumb-item active" aria-current="page">State</li>
+      </ol>
+    </nav>
+    <ul>
+    {{#each requirements}}
+        <li><a href="requirements/{{id}}">{{name}}</a></li>
+    {{/each}}
+    </ul>
+    <h3>Students</h3>
+    {{#each students}}
+        <li><a href="students/{{id}}">{{name}}</a></li>
+    {{/each}}
+</body>
+</html>
