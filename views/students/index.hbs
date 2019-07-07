@@ -3,11 +3,15 @@
 {{> head}}
 <body>
     {{> nav}}
-    <h3>Students</h3>
-    <ul>
-    {{#each items}}
-        <li><a href="students/{{id}}">{{name}}</a></li>
-    {{/each}}
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Students</li>
+      </ol>
+    </nav>
+    <ul class="list-group">
+        {{#each items}}
+            <li class="list-group-item"><a href="students/{{id}}">{{name}}</a></li>
+        {{/each}}
     </ul>
 </body>
 </html>

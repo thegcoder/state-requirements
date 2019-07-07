@@ -3,7 +3,12 @@
 {{> head}}
 <body>
     {{> nav}}
-    <h3>States | State</h3>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item" aria-current="page">States</li>
+        <li class="breadcrumb-item active" aria-current="page">State</li>
+      </ol>
+    </nav>
     <ul>
     {{#each requirements}}
         <li><a href="requirements/{{id}}">{{name}}</a></li>
