@@ -1,0 +1,17 @@
+<a href="/shops">Back to all shops</a>
+
+<h2>{{shop.name}}</h2>
+
+<a href="/shops/{{shop._id}}/edit">Edit Shop</a>
+
+<form action="/shops/{{shop._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Shop">
+</form>
+
+<h3>Menu</h3>
+
+<ul>
+    {{#each food}}
+        <li>{{name}}</li>
+    {{/each}}
+</ul>

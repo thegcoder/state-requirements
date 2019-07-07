@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>State Requirements</title>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Requirements By State</h1>
+    <h2><a href="/">States</a> | {{name}}</h2>
+    <h3>Requirements</h3>
+    <ul>
+    {{#each requirements}}
+        <li><a href="requirements/{{id}}">{{name}}</a></li>
+    {{/each}}
+    </ul>
+    <h3>Students</h3>
+    {{#each students}}
+        <li><a href="students/{{id}}">{{name}}</a></li>
+    {{/each}}
+</body>
+</html>
