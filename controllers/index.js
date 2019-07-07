@@ -52,9 +52,8 @@ router.get('/create/:type', (req, res) => {
 router.post('/:type', (req, res) => {
     const type = req.params.type;
     apis.create(type, req.body)
-        .then(() => {
-            // res.redirect(`/#create`);
-            res.send(req.body);
+        .then((data) => {
+            res.redirect(`/${type}`);
         })
         .catch((err) => {
             res.send(err);

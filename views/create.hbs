@@ -11,5 +11,20 @@
         <a class="nav-link active" href="#create">Create</a>
       </li>
     </ul>
+    <form class="form-border" action="/{{type}}" method="post">
+        <div class="form-group row">
+            <label for="formName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="formName" placeholder="Name" name="name" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="formDescription" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="formDescription" placeholder="Description" name="description">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 </body>
 </html>

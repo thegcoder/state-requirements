@@ -9,7 +9,8 @@ const mongoose = require('./connection.js');
      name: {
          type: String,
          required: true
-     }
+     },
+     description: String
  });
 
 // State schema
@@ -19,6 +20,7 @@ const StateSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    description: String,
     requirements: [],
     students: []
 });
@@ -75,15 +77,15 @@ async function all(type) {
 async function create(type, object) {
     let data = Promise.resolve(false);
     switch (type) {
-        case 'state':
+        case 'states':
             data = await States.create(object);
             return data;
             break;
-        case 'student':
+        case 'students':
             data = await Students.create(object);
             return data;
             break;
-        case 'requirement':
+        case 'requirements':
             data = await Requirements.create(object);
             return data;
             break;
