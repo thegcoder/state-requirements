@@ -159,6 +159,6 @@ async function deleter(type, id) {
    all,
    create,
    read,
-   deleter,
-   remove
+   update,
+   deleter
  }

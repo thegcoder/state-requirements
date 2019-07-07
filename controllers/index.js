@@ -92,8 +92,8 @@ router.delete('/:type/:id', (req, res) => {
 router.get('/', (req, res) => {
     apis.all('states')
         .then((states) => {
-            // res.render('states', {states});
-            res.send(states);
+            res.render('', {states});
+            // res.send(states);
         })
         .catch((err) => {
             res.send(err)
