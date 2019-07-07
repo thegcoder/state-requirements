@@ -66,7 +66,6 @@ router.get('/:type/:id', (req, res) => {
     const id = req.params.id;
     apis.read(type, id)
         .then((object) => {
-            console.log(object);
             res.render(`${type}s/${type}`, object);
         })
         .catch((err) => {

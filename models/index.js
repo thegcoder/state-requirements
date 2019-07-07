@@ -21,8 +21,7 @@ const StateSchema = new mongoose.Schema({
         unique: true
     },
     description: String,
-    requirements: [],
-    students: []
+    requirements: []
 });
 
 // Requirement schema
@@ -32,7 +31,8 @@ const RequirementSchema = new mongoose.Schema({
         require: true,
         unique: true
     },
-    description: String
+    description: String,
+    students: []
 })
 
 /**

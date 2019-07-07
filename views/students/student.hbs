@@ -14,14 +14,10 @@
         <a class="nav-link" href="#delete">Delete</a>
       </li>
     </ul>
-    <ul>
-    {{#each requirements}}
-        <li><a href="requirements/{{id}}">{{name}}</a></li>
-    {{/each}}
-    </ul>
-    <h3>Students</h3>
-    {{#each students}}
-        <li><a href="students/{{id}}">{{name}}</a></li>
-    {{/each}}
+    <div class="jumbotron">
+      <h1 class="display-4">{{name}}</h1>
+      <p class="lead">{{description}}</p>
+      <hr class="my-4">
+    </div>
 </body>
 </html>
