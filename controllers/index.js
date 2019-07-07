@@ -26,8 +26,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     apis.all('states')
         .then((states) => {
-            console.log(states);
-            res.render('index', {states});
+            res.render('index', {});
         })
         .catch((err) => {
             res.send(err)
@@ -38,7 +37,6 @@ router.get('/:type', (req, res) => {
     const type = req.params.type;
     apis.all(type)
         .then((items) => {
-            console.log(items);
             res.render(`${type}/index`, {items});
         })
         .catch((err) => {
@@ -66,7 +64,7 @@ router.get('/:type/:id', (req, res) => {
     apis.read(type, id)
         .then((object) => {
             console.log(object);
-            res.render(`${type}`, object);
+            res.render(`${type}s/${type}`, object);
         })
         .catch((err) => {
             res.send(err);

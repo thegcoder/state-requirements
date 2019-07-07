@@ -10,6 +10,7 @@
  */
 const express = require('express');
 const app = express();
+const hbs = require('hbs');
 
 /* Step 2
  *
@@ -54,7 +55,7 @@ app.use(express.static(`${__dirname}/public`));
  * set the view engine of express to use the hbs (handlebars) package
  */
 app.set('view engine', 'hbs');
-
+hbs.registerPartials(__dirname + '/views/partials');
 
 /* Step 4
  *
