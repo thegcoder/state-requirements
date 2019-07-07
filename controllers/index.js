@@ -24,13 +24,7 @@ const router = express.Router();
 
  // ALL
 router.get('/', (req, res) => {
-    apis.all('states')
-        .then((states) => {
-            res.render('index', {});
-        })
-        .catch((err) => {
-            res.send(err)
-        });
+    res.render('index', {});
 });
 
 router.get('/:type', (req, res) => {
@@ -45,6 +39,13 @@ router.get('/:type', (req, res) => {
 });
 
 // CREATE
+router.get('/create/:type', (req, res) => {
+    let type = req.params.type;
+    // Uppercase the first letter of the type
+    type = type.charAt(0).toUpperCase() + type.slice(1);
+    res.render('create', {type});
+});
+
 router.post('/:type', (req, res) => {
     const type = req.params.type;
     apis.create(type, req.body)
