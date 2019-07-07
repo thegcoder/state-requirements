@@ -22,6 +22,17 @@ const router = express.Router();
  * request handlers
  */
 
+ // ALL
+router.get('/', (req, res) => {
+    apis.all('states')
+        .then((states) => {
+            res.render('index', {states});
+        })
+        .catch((err) => {
+            res.send(err)
+        });
+});
+
 // CREATE
 router.post('/:type', (req, res) => {
     const type = req.params.type;
@@ -85,18 +96,6 @@ router.delete('/:type/:id', (req, res) => {
         })
         .catch((err) => {
             res.send(err);
-        });
-});
-
-// ALL
-router.get('/', (req, res) => {
-    apis.all('states')
-        .then((states) => {
-            res.render('', {states});
-            // res.send(states);
-        })
-        .catch((err) => {
-            res.send(err)
         });
 });
 

@@ -7,23 +7,17 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Welp</title>
+    <title>State Requirements</title>
     <link rel="stylesheet" href="/css/styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Sigmar+One&display=swap" rel="stylesheet">
-    <input type="text" onkeyup="this.value = this.value.toUpperCase();">
-    <input type="text" onkeyup="
-      var start = this.selectionStart;
-      var end = this.selectionEnd;
-      this.value = this.value.toUpperCase();
-      this.setSelectionRange(start, end);
-
 </head>
 <body>
-    <!--
-      This is a place holder for the contents of the .hbs file that is
-      rendered.
-    -->
-    {{{body}}}
-
+    <h1>Requirements By State</h1>
+    <h2>States</h2>
+    <ul>
+    {{#each states}}
+        <li><a href="states/{{id}}">{{name}}</a></li>
+    {{/each}}
+    </ul>
 </body>
 </html>
