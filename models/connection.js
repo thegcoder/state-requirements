@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 
 /* The Mongo URI that we're connecting with
  *
- * TODO: replace <db-name> with the name of your mongo database. 
+ * TODO: replace <db-name> with the name of your mongo database.
  * This will need to change for every new project you create.
  *
  */
-const connectionString = "mongodb://localhost/welp-sei22";
+const connectionString = "mongodb://localhost/state-requirements";
 
 
 /* Open up a connection to the mongo database.
