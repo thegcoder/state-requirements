@@ -100,12 +100,25 @@ router.post('/:type/:id', (req, res) => {
 });
 
 // DELETE
-router.delete('/:type/:id', (req, res) => {
+router.get('/delete/:type/:id', (req, res) => {
+    const type = req.params.type;
+    const id = req.params.id;
+    apis.read(type, id)
+        .then((object) => {
+            object.display = object.type.charAt(0).toUpperCase() + object.type.slice(1);
+            res.render('delete', object);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
+});
+
+router.post('/delete/:type/:id', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
     apis.deleter(type, id)
-        .then(() => {
-            res.redirect(`/#delete`);
+        .then((p, r) => {
+            res.redirect(`/${type}`);
         })
         .catch((err) => {
             res.send(err);
