@@ -4,14 +4,18 @@ const mongoose = require('./connection.js');
  * 1. Schemas
  */
 
- // Student schema
- const StudentSchema = new mongoose.Schema({
-     name: {
-         type: String,
-         required: true
-     },
-     description: String
- });
+// Student schema
+const StudentSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: String,
+    type: {
+        type: String,
+        default: 'student'
+    }
+});
 
 // State schema
 const StateSchema = new mongoose.Schema({
@@ -21,7 +25,11 @@ const StateSchema = new mongoose.Schema({
         unique: true
     },
     description: String,
-    requirements: []
+    requirements: [],
+    type: {
+        type: String,
+        default: 'state'
+    }
 });
 
 // Requirement schema
@@ -32,7 +40,11 @@ const RequirementSchema = new mongoose.Schema({
         unique: true
     },
     description: String,
-    students: []
+    students: [],
+    type: {
+        type: String,
+        default: 'requirement'
+    }
 })
 
 /**
@@ -98,15 +110,15 @@ async function create(type, object) {
 async function read(type, id) {
     let data = Promise.resolve(false);
     switch (type) {
-        case 'state':
+        case 'states':
             data = await States.findById(id);
             return data;
             break;
-        case 'student':
+        case 'students':
             data = await Students.findById(id);
             return data;
             break;
-        case 'requirement':
+        case 'requirements':
             data = await Requirements.findById(id);
             return data;
             break;
@@ -119,15 +131,15 @@ async function read(type, id) {
 async function update(type, id, object) {
     let data = Promise.resolve(false);
     switch (type) {
-        case 'state':
+        case 'states':
             data = await States.findByIdAndUpdate(id, object);
             return data;
             break;
-        case 'student':
+        case 'students':
             data = await Students.findByIdAndUpdate(id, object);
             return data;
             break;
-        case 'requirement':
+        case 'requirements':
             data = await Requirements.findByIdAndUpdate(id, object);
             return data;
             break;
@@ -140,13 +152,13 @@ async function update(type, id, object) {
 async function deleter(type, id) {
     let data = Promise.resolve(false);
     switch (type) {
-        case 'state':
+        case 'states':
             data = await States.findByIdAndDelete(id);
             return data;
-        case 'student':
+        case 'students':
             data = await Students.findByIdAndDelete(id);
             return data;
-        case 'requirement':
+        case 'requirements':
             data = await Requirements.findByIdAndDelete(id);
             return data;
         default:

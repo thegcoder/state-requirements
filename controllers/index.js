@@ -66,7 +66,7 @@ router.get('/:type/:id', (req, res) => {
     const id = req.params.id;
     apis.read(type, id)
         .then((object) => {
-            res.render(`${type}s/${type}`, object);
+            res.render(`${type}/${object.type}`, object);
         })
         .catch((err) => {
             res.send(err);
@@ -76,10 +76,10 @@ router.get('/:type/:id', (req, res) => {
 router.get('/:type/:id/edit', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
-    apis.read(type)
+    apis.read(type, id)
         .then((object) => {
-            // res.render(`${type}/edit`, {object});
-            res.send(object);
+            object.display = object.type.charAt(0).toUpperCase() + object.type.slice(1);
+            res.render('update', object);
         })
         .catch((err) => {
             res.send(err);
@@ -87,12 +87,12 @@ router.get('/:type/:id/edit', (req, res) => {
 });
 
 // UPDATE
-router.put('/:type/:id', (req, res) => {
+router.post('/:type/:id', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
     apis.update(type, id, req.body)
-        .then(() => {
-            res.redirect(`/#update`);
+        .then((data) => {
+            res.redirect(`/${type}/${id}`);
         })
         .catch((err) => {
             res.send(err);
