@@ -49,7 +49,7 @@ router.get('/create/:type', (req, res) => {
     res.render('create', data);
 });
 
-router.post('/:type', (req, res) => {
+router.post('/create/:type', (req, res) => {
     const type = req.params.type;
     apis.create(type, req.body)
         .then((data) => {
@@ -73,7 +73,8 @@ router.get('/:type/:id', (req, res) => {
         });
 });
 
-router.get('/:type/:id/edit', (req, res) => {
+// UPDATE
+router.get('/update/:type/:id', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
     apis.read(type, id)
@@ -86,8 +87,7 @@ router.get('/:type/:id/edit', (req, res) => {
         });
 });
 
-// UPDATE
-router.post('/:type/:id', (req, res) => {
+router.post('/update/:type/:id', (req, res) => {
     const type = req.params.type;
     const id = req.params.id;
     apis.update(type, id, req.body)
