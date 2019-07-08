@@ -2,9 +2,37 @@
 
 ## Table of contents
 
+- [Dependencies](#dependecies)
+  - [Installation](#installation)
+  - (How to run)(#how-to-run)
 - [MVC](#mvc)
 - [State Requirements App](#state-requirements-app)
 - [CSS](#css-rules)
+
+## Dependencies
+
+- [MongoDB](https://www.mongodb.com/)
+- [Nodejs](https://nodejs.org/)
+
+### Installation
+
+```
+$ npm install
+```
+
+### How to run
+
+Start a local mongo instance
+
+```
+$ npm run start:mongo
+```
+
+Start the application
+
+```
+$ npm start
+```
 
 ## MVC
 
