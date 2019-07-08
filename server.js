@@ -62,6 +62,7 @@ hbs.registerPartials(__dirname + '/views/partials');
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
+app.use('/favicon.ico', express.static('favicon.ico'));
 app.use('/', router);
 
 /* Step 5

@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
  * This will need to change for every new project you create.
  *
  */
-const connectionString = "mongodb://localhost/state-requirements";
+const connectionString = process.env.MONGO_URL;
 
 
 /* Open up a connection to the mongo database.
