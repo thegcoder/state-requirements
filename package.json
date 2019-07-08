@@ -11,7 +11,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "PORT=5000 node server.js",
+    "start": "node server.js",
     "start:mongo": "mongod --config /usr/local/etc/mongod.conf"
   },
   "author": "",
