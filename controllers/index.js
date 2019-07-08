@@ -46,6 +46,9 @@ router.get('/create/:type', (req, res) => {
         // Uppercase the first letter of the type
         display: type.charAt(0).toUpperCase() + type.slice(1)
     };
+    if (type === 'requirements') {
+        data.hasCredits = true;
+    }
     res.render('create', data);
 });
 
@@ -66,6 +69,9 @@ router.get('/:type/:id', (req, res) => {
     const id = req.params.id;
     apis.read(type, id)
         .then((object) => {
+            if (type === 'requirements') {
+                object.hasCredits = true;
+            }
             res.render(`${type}/${object.type}`, object);
         })
         .catch((err) => {
@@ -80,6 +86,9 @@ router.get('/update/:type/:id', (req, res) => {
     apis.read(type, id)
         .then((object) => {
             object.display = object.type.charAt(0).toUpperCase() + object.type.slice(1);
+            if (type === 'requirements') {
+                object.hasCredits = true;
+            }
             res.render('update', object);
         })
         .catch((err) => {
@@ -106,6 +115,9 @@ router.get('/delete/:type/:id', (req, res) => {
     apis.read(type, id)
         .then((object) => {
             object.display = object.type.charAt(0).toUpperCase() + object.type.slice(1);
+            if (type === 'requirements') {
+                object.hasCredits = true;
+            }
             res.render('delete', object);
         })
         .catch((err) => {

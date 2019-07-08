@@ -27,6 +27,21 @@
                 <input type="text" class="form-control" id="formDescription" value="{{description}}" name="description">
             </div>
         </div>
+        {{#if hasCredits}}
+        <div class="form-group row">
+            <label for="formCredits" class="col-sm-2 col-form-label">Credit Hours</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="formCredits">
+                    <option value="{{credits}}" hidden="hidden" selected="selected">{{credits}}</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </div>
+        </div>
+        {{/if}}
         <button type="submit" class="btn btn-primary">Submit</button>
         <a class="btn btn-primary" href="/{{type}}s/{{id}}" role="button">Cancel</a>
     </form>

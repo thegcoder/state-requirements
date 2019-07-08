@@ -39,6 +39,10 @@ const RequirementSchema = new mongoose.Schema({
         require: true,
         unique: true
     },
+    credits: {
+        type: Number,
+        default: 0
+    },
     description: String,
     students: [],
     type: {
