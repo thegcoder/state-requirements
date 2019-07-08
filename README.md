@@ -4,7 +4,7 @@
 
 - [Dependencies](#dependecies)
   - [Installation](#installation)
-  - (How to run)(#how-to-run)
+  - [How to run](#how-to-run)
 - [MVC](#mvc)
 - [State Requirements App](#state-requirements-app)
 - [CSS](#css-rules)
